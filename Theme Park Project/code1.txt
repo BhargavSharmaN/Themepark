@@ -1,0 +1,123 @@
+
+
+CREATE TABLE `tbladmin` (
+  `ID` int(10) NOT NULL,
+  `AdminName` varchar(50) DEFAULT NULL,
+  `UserName` varchar(50) DEFAULT NULL,
+  `MobileNumber` bigint(10) DEFAULT NULL,
+  `Email` varchar(120) DEFAULT NULL,
+  `Password` varchar(120) DEFAULT NULL,
+  `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
+(1, 'Admin user', 'admin', 7889898987, 'tester1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2020-07-17 11:12:29');
+
+
+CREATE TABLE `tblentrytickets` (
+  `id` int(11) NOT NULL,
+  `TIcketNumber` varchar(120) DEFAULT NULL,
+  `Name` varchar(250) DEFAULT NULL,
+  `Gender` varchar(250) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `NoOfMale` int(11) NOT NULL,
+  `MaleTicketPrice` decimal(10,2) NOT NULL,
+  `NoOfFemale` int(11) NOT NULL,
+  `FemaleTicketPrice` decimal(10,2) NOT NULL,
+  `NoOfKids` int(11) NOT NULL,
+  `NoOfKidsForTicket` int(11) NOT NULL,
+  `KidsTicketPrice` decimal(10,2) NOT NULL,
+  `VisitDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `LastUpdationDa` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ Dumping data for table `tblentrytickets`
+
+INSERT INTO `tblentrytickets` (`id`, `TIcketNumber`, `Name`, `Gender`, `Address`, `NoOfMale`, `MaleTicketPrice`, `NoOfFemale`, `FemaleTicketPrice`, `NoOfKids`, `NoOfKidsForTicket`, `KidsTicketPrice`, `VisitDate`, `LastUpdationDa`) VALUES
+(4, '333005062', 'Test User', 'Male', 'dashdhasjf ', 1, '90.00', 1, '90.00', 1, 1, '50.00', '2020-07-17 18:38:11', '2020-07-17 19:10:37');
+
+--
+Table structure for table `tblprice`
+
+CREATE TABLE `tblprice` (
+  `id` int(11) NOT NULL,
+  `TicketType` varchar(100) NOT NULL,
+  `MaleTIcket` decimal(10,2) NOT NULL,
+  `FemaleTIcket` decimal(10,2) NOT NULL,
+  `KidsTicket` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ Dumping data for table `tblprice`
+
+INSERT INTO `tblprice` (`id`, `TicketType`, `MaleTIcket`, `FemaleTIcket`, `KidsTicket`) VALUES
+(1, 'Entry', '90.00', '90.00', '50.00'),
+(2, 'NormalRide', '120.00', '120.00', '80.00'),
+(3, 'WaterRide', '180.00', '180.00', '120.00');
+
+
+
+
+ Table structure for table `tblridetickets`
+
+
+CREATE TABLE `tblridetickets` (
+  `id` int(11) NOT NULL,
+  `TIcketNumber` varchar(120) DEFAULT NULL,
+  `RideType` varchar(120) DEFAULT NULL,
+  `Name` varchar(250) DEFAULT NULL,
+  `Gender` varchar(250) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `NoOfMale` int(11) NOT NULL,
+  `MaleTicketPrice` decimal(10,2) NOT NULL,
+  `NoOfFemale` int(11) NOT NULL,
+  `FemaleTicketPrice` decimal(10,2) NOT NULL,
+  `NoOfKids` int(11) NOT NULL,
+  `NoOfKidsForTicket` int(11) NOT NULL,
+  `KidsTicketPrice` decimal(10,2) NOT NULL,
+  `VisitDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `LastUpdationDa` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ Dumping data for table `tblridetickets`
+
+
+INSERT INTO `tblridetickets` (`id`, `TIcketNumber`, `RideType`, `Name`, `Gender`, `Address`, `NoOfMale`, `MaleTicketPrice`, `NoOfFemale`, `FemaleTicketPrice`, `NoOfKids`, `NoOfKidsForTicket`, `KidsTicketPrice`, `VisitDate`, `LastUpdationDa`) VALUES
+(2, '783289568', 'Normal Ride', 'Anuj kumar', 'Male', 'New Delhi', 5, '120.00', 4, '120.00', 2, 2, '80.00', '2020-07-17 18:57:48', '2020-07-17 19:04:50');
+
+
+ Indexes for dumped tables
+ Indexes for table `tbladmin`
+
+ALTER TABLE `tbladmin`
+  ADD PRIMARY KEY (`ID`);
+ Indexes for table `tblentrytickets`
+ALTER TABLE `tblentrytickets`
+  ADD PRIMARY KEY (`id`);
+ Indexes for table `tblprice`
+ALTER TABLE `tblprice`
+  ADD PRIMARY KEY (`id`);
+Indexes for table `tblridetickets`
+ALTER TABLE `tblridetickets`
+  ADD PRIMARY KEY (`id`);
+ AUTO_INCREMENT for dumped tables
+
+
+ AUTO_INCREMENT for table `tbladmin`
+
+ALTER TABLE `tbladmin`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ AUTO_INCREMENT for table `tblentrytickets`
+ALTER TABLE `tblentrytickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ AUTO_INCREMENT for table `tblprice`
+ALTER TABLE `tblprice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+ AUTO_INCREMENT for table `tblridetickets`
+ALTER TABLE `tblridetickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+
